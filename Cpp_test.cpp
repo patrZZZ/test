@@ -4,14 +4,12 @@
 #include <string>
 using namespace std;
 
+//Vector
 
-int main() {
-   cout << "Hello World"; // prints Hello World
-   return 0;
-}
 
-sizeof()
 
+
+***********************************************
 int sockMerchant(int n, vector<int> ar) {
     vector<int>::iterator it = ar.begin();
     int pairs = 0;
@@ -103,7 +101,7 @@ if(boolean_expression 1) {
    // executes when the none of the above condition is true.
 }
 
-   
+*******switch**********************************
    char grade = 'D';
 
    switch(grade) {
@@ -125,14 +123,17 @@ if(boolean_expression 1) {
    }
    cout << "Your grade is " << grade << endl;
 
-//Array:
-int a[3][4] = {  
+
+*******Array**********************************
+   int a[3][4] = {  
    {0, 1, 2, 3} ,   
    {4, 5, 6, 7} ,   
    {8, 9, 10, 11}   
 };
 int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
    
+   
+************Pointer*************************
 double *p;
 double balance[10];
 
@@ -149,7 +150,7 @@ string str2 = "World";
 str3 = str1 + str2;
 len = str3.size();
 
-   
+***********************************************   
 struct Books {
    char  title[50];
    char  author[50];
@@ -161,7 +162,7 @@ void printBook( struct Books book )
 struct Books *struct_pointer;
 struct_pointer = &Book1;
 struct_pointer->title;
-   
+***********************************************   
 class Box {
    public:
       double length;   // Length of a box
@@ -193,6 +194,90 @@ class Rectangle: public Shape {
 class Rectangle: public Shape, public PaintCost { 
 
 
+*****************Polymorphism***************************
+class Shape {
+   protected:
+      int width, height;
+      
+   public:
+      Shape( int a = 0, int b = 0) {
+         width = a;
+         height = b;
+      }
+      virtual int area() {
+         cout << "Parent class area :" <<endl;
+         return 0;
+      }
+};
 
+**************Template***********************
+using namespace std;
+//Function Template
+template <typename T>
+inline T const& Max (T const& a, T const& b) { 
+   return a < b ? b:a; 
+}
+
+//Class Template
+
+template <class T>
+class Stack { 
+   private: 
+      vector<T> elems;    // elements 
+
+   public: 
+      void push(T const&);  // push element 
+      void pop();               // pop element 
+      T top() const;            // return top element 
+      
+      bool empty() const {      // return true if empty.
+         return elems.empty(); 
+      } 
+}; 
+
+template <class T>
+void Stack<T>::push (T const& elem) { 
+   // append copy of passed element 
+   elems.push_back(elem);    
+} 
+
+template <class T>
+void Stack<T>::pop () { 
+   if (elems.empty()) { 
+      throw out_of_range("Stack<>::pop(): empty stack"); 
+   }
+   
+   // remove last element 
+   elems.pop_back();         
+} 
+
+template <class T>
+T Stack<T>::top () const { 
+   if (elems.empty()) { 
+      throw out_of_range("Stack<>::top(): empty stack"); 
+   }
+   
+   // return copy of last element 
+   return elems.back();      
+} 
    
    
+******Try Catch*******************
+   try {
+      Stack<int>         intStack;  // stack of ints 
+      Stack<string> stringStack;    // stack of strings 
+
+      // manipulate int stack 
+      intStack.push(7); 
+      cout << intStack.top() <<endl; 
+
+      // manipulate string stack 
+      stringStack.push("hello"); 
+      cout << stringStack.top() << std::endl; 
+      stringStack.pop(); 
+      stringStack.pop(); 
+   } catch (exception const& ex) { 
+      cerr << "Exception: " << ex.what() <<endl; 
+      return -1;
+   } 
+
