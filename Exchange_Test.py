@@ -169,3 +169,43 @@ df = pd.read_pickle('./preMktvol.p')
 print df[name]['20180510':'20180515']
 print temp.trades
 #TAQnbbo
+class indicator():
+    def __init__(self):
+        resistance_level = 'Nan'
+        stop_loss = 'Nan'
+        stop_gain = 'Nan'
+        
+        price_flag = 0
+        volume_flag = 0
+        
+
+
+class production():
+    def __init__(self, symbol, exchange, date):
+        self.symbol = symbol
+        self.exchange = exchange
+        self.date = date
+        self.md = md(symbol, exchange, date)
+    def Convert2Candle(self, time_window):
+        #print self.md.trades['trades.price']
+        df_candle = self.md.trades['trades.price'].resample(time_window).ohlc()
+        return df_candle
+        #self.ohlc = df_ohlc # needed to be adjusted to fit multi-ohlc situation
+    def trading(self):
+        self.md.prod_prep()
+        candle_1m = self.Convert2Candle('1Min')
+        candle_5m = self.Convert2Candle('5Min')
+        
+        for idx,row in self.md.trades.iterrows():
+            a = 1
+    
+    
+    
+
+start_time = time.time() 
+test = production('FB', 'XNAS', '20180507')
+#test.Convert2Candle('1Min')
+#print test.ohlc
+test.trading()
+print("--- %s seconds ---" % (time.time() - start_time))    
+    
