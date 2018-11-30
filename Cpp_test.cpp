@@ -9,7 +9,7 @@ using namespace std;
 
 
 
-***********************************************
+*********************Examples**************************
 int sockMerchant(int n, vector<int> ar) {
     vector<int>::iterator it = ar.begin();
     int pairs = 0;
@@ -133,7 +133,7 @@ if(boolean_expression 1) {
 int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
    
    
-************Pointer*************************
+*******************Pointer*************************
 double *p;
 double balance[10];
 
