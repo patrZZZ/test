@@ -1,13 +1,8 @@
-
-
 #include <iostream>
 #include <string>
 using namespace std;
 
 //Vector
-
-
-
 
 *********************Examples**************************
 int sockMerchant(int n, vector<int> ar) {
